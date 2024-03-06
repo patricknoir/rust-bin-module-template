@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{project-name}}-deployment
+  labels:
+    app: {{project-name}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{project-name}}
+  template:
+    metadata:
+      labels:
+        app: {{project-name}}
+    spec:
+      containers:
+        - name: {{project-name}}
+          image: patricknoir/{{project-name}}:latest
+          ports:
+            - containerPort: 9080
+#          env:
+#            - name: DATABASE_URL
+#              value: "postgres://postgres:postgres@postgres-service:5432/smart_app"
+#            - name: KAFKA_BOOTSTRAP_SERVERS
+#              value: "kafka-service:9092"
