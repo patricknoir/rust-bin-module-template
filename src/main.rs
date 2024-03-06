@@ -6,7 +6,7 @@ use log::info;
 mod api;
 
 static LOG_LEVEL_DEFAULT: &str = "info";
-static ENV_FILE_PATH: &str = "./{{project-name}}/.env";
+static ENV_FILE_PATH: &str = ".env";
 pub const BIND_ADDRESS: &str = "BIND_ADDRESS";
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
