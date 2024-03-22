@@ -9,6 +9,6 @@ RUN apt-get -y update
 RUN apt-get install -y libpq-dev
 RUN mkdir /{{project-name}}
 COPY --from=builder /build/target/release/{{project-name}} /{{project-name}}/{{project-name}}
-COPY --from=builder /build/{{project-name}}/.env /{{project-name}}/.env
+COPY --from=builder /build/.env /{{project-name}}/.env
 WORKDIR /{{project-name}}
 CMD ["./{{project-name}}"]
